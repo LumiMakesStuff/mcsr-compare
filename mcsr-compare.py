@@ -23,12 +23,20 @@ def check_status():
     else:
         Warning(f"Main endpoint failed with code {mainEndpointResponse.status_code}.")
         
+        print()
+
         print(f"Checking endpoint {MCSR_ENDPOINT_ALT}...")
         altEndpointResponse = requests.get(MCSR_ENDPOINT_ALT)
 
         if altEndpointResponse.status_code == 200:
             print("Recieved code 200. Using alternate endpoint")
             chosenEndpoint = altEndpointResponse
+        else:
+            Warning(f"Alternate endpoint failed with code {altEndpointResponse.status_code}.")
+            print()
+            print("Failed to connect to all servers :(")
+            input("Press enter to close.")
+            quit()
 
 def get_runner_data():
     pass
