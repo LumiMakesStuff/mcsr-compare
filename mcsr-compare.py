@@ -14,6 +14,8 @@ chosenEndpoint = ""
 
 # Functions
 def check_status():
+    global chosenEndpoint
+
     print("Don't forget all MCSR Ranked endpoints have a limit of 500 requests per minute unless specified on their documentation.")
 
     print()
@@ -53,9 +55,17 @@ def check_status():
             input("Press enter to close.")
             quit()
 
-# !! Not made yet !!
-def get_runner_data():
-    pass
+def get_runner_data(runnerIdentifier: str):
+    request = requests.get(f"{chosenEndpoint}users/{runnerIdentifier}")
+
+    if request.status_code == 200:
+        # Success
+        print(f"Got data for {runnerIdentifier}")
+        
+        json = request.json()
+        data = json.get("data")
+
+        return data
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -66,7 +76,15 @@ print()
 # Endpoint check
 check_status()
 
-# Player 
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+# Player 1
+# For debug using current 1st on leaderboard (edcr)
+print()
+
+print("Getting data for edcr...")
+data = get_runner_data("edcr")
+print(data)
 
 print()
 print()
