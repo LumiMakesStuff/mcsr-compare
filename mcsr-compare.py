@@ -16,7 +16,7 @@ chosenEndpoint = ""
 def check_status():
     global chosenEndpoint
 
-    print("Don't forget all MCSR Ranked endpoints have a limit of 500 requests per minute unless specified on their documentation.")
+    print("Don't forget all MCSR Ranked endpoints have a limit of 500 requests every 10 minutes unless specified on their documentation.")
 
     print()
 
