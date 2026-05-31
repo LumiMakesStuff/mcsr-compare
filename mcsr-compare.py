@@ -94,10 +94,10 @@ check_status()
 print()
 
 print("Getting data for edcr...")
-data = get_runner_data("edcr")
+runner1Data = get_runner_data("edcr")
 
-if data:
-    print("Successfully recieved data!")
+if runner1Data:
+    print("Successfully received data!")
 else:
     print("Failed to get data!")
     print()
@@ -105,16 +105,16 @@ else:
     quit()
 
 # Data Variables Runner 1
-runner1Statistics = data["statistics"]
+runner1Statistics = runner1Data["statistics"]
 runner1StatTotal = runner1Statistics["total"]
 runner1StatSeason = runner1Statistics["season"]
 
-runner1Name = data["nickname"]
+runner1Name = runner1Data["nickname"]
 #---#
-runner1CountryCode: str = data["country"].upper()
+runner1CountryCode: str = runner1Data["country"].upper()
 #---#
-runner1EloRate = data["eloRate"]
-runner1EloRank = data["eloRank"]
+runner1EloRate = runner1Data["eloRate"]
+runner1EloRank = runner1Data["eloRank"]
 #---#
 runner1PlayedMatchesRankedTotal = runner1StatTotal["playedMatches"]["ranked"]
 runner1PlayedMatchesCasualTotal = runner1StatTotal["playedMatches"]["casual"]
@@ -140,14 +140,55 @@ runner1BestTimeCasualTotal = runner1StatTotal["bestTime"]["casual"]
 runner1BestTimeRankedSeason = runner1StatSeason["bestTime"]["ranked"]
 runner1BestTimeCasualSeason = runner1StatSeason["bestTime"]["casual"]
 #---#
-runner1PlayTimeRankedTotal = runner1StatTotal["playTime"]["ranked"]
-runner1PlayTimeCasualTotal = runner1StatTotal["playTime"]["casual"]
+runner1PlayTimeRankedTotal = runner1StatTotal["playtime"]["ranked"]
+runner1PlayTimeCasualTotal = runner1StatTotal["playtime"]["casual"]
 #---#
-runner1PlayTimeRankedSeason = runner1StatSeason["playTime"]["ranked"]
-runner1PlayTimeCasualSeason = runner1StatSeason["playTime"]["casual"]
+runner1PlayTimeRankedSeason = runner1StatSeason["playtime"]["ranked"]
+runner1PlayTimeCasualSeason = runner1StatSeason["playtime"]["casual"]
 #---#
 
 # Data Variables Runner 2
+runner2Statistics = None
+runner2StatTotal = None
+runner2StatSeason = None
+
+runner2Name = None
+#---#
+runner2CountryCode: str = None
+#---#
+runner2EloRate = None
+runner2EloRank = None
+#---#
+runner2PlayedMatchesRankedTotal = None
+runner2PlayedMatchesCasualTotal = None
+#---#
+runner2PlayedMatchesRankedSeason = None
+runner2PlayedMatchesCasualSeason = None
+#---#
+runner2HighestWinStreakRankedTotal = None
+runner2HighestWinStreakCasualTotal = None
+#---#
+runner2HighestWinStreakRankedSeason = None
+runner2HighestWinStreakCasualSeason = None
+#---#
+runner2CurrentWinStreakRankedTotal = None
+runner2CurrentWinStreakCasualTotal = None
+#---#
+runner2CurrentWinStreakRankedSeason = None
+runner2CurrentWinStreakCasualSeason = None
+#---#
+runner2BestTimeRankedTotal = None
+runner2BestTimeCasualTotal = None
+#---#
+runner2BestTimeRankedSeason = None
+runner2BestTimeCasualSeason = None
+#---#
+runner2PlayTimeRankedTotal = None
+runner2PlayTimeCasualTotal = None
+#---#
+runner2PlayTimeRankedSeason = None
+runner2PlayTimeCasualSeason = None
+#---#
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
@@ -197,11 +238,11 @@ table.add_row(["Season Fastest Casual Run (In seconds)", runner1BestTimeCasualSe
 
 table.add_divider()
 
-table.add_row(["All Time Play Time (In seconds)", runner1PlayTimeRankedTotal])
-table.add_row(["Season Play Time (In seconds)", runner1PlayTimeRankedSeason])
+table.add_row(["All Time Play Time Ranked (In seconds)", runner1PlayTimeRankedTotal])
+table.add_row(["Season Play Time Ranked (In seconds)", runner1PlayTimeRankedSeason])
 
-table.add_row(["All Time Play Time (In seconds)", runner1PlayTimeCasualTotal])
-table.add_row(["Season Play Time (In seconds)", runner1PlayTimeCasualSeason])
+table.add_row(["All Time Play Time Ranked (In seconds)", runner1PlayTimeCasualTotal])
+table.add_row(["Season Play Time Ranked (In seconds)", runner1PlayTimeCasualSeason])
 
 print(table)
 
