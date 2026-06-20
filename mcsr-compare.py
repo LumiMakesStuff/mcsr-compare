@@ -154,7 +154,12 @@ runner1PlayTimeCasualSeason = runner1StatSeason["playtime"]["casual"]
 runner2 = str(input("Pick your second runner (UUID, Name) | "))
 
 print(f"Getting data for {runner2}...")
-runner2Data = get_runner_data(runner2)
+runner2Data = None
+
+if runner1 == runner2:
+    runner2Data = runner1Data
+else:
+    get_runner_data(runner2)
 
 if runner2Data:
     print("Successfully received data!")
@@ -216,6 +221,11 @@ runner2PlayTimeCasualSeason = runner2StatSeason["playtime"]["casual"]
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
 print()
+
+if runner1Name == runner2Name:
+    runner1Name = f"{runner1Name} (1)"
+    runner2Name = f"{runner2Name} (2)"
+
 table = prettytable.PrettyTable(["Stat", runner1Name, runner2Name])
 
 table.add_row(["Country", runner1CountryCode, runner2CountryCode])
