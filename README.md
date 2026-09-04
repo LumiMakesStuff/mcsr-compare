@@ -24,3 +24,4 @@ To run, just open a terminal in the same folder as mcsr-compare.py and run pytho
 ## Notes
 
 - Made before I discovered the official MCSR Ranked site had a compare tool :(
+- Coded horribly - just use the MCSR site >-<
